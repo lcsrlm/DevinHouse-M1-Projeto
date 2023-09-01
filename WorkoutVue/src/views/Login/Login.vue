@@ -62,7 +62,11 @@ export default {
         const response = await axios.post('http://localhost:3000/sessions', loginData)
         console.log('Resposta da API:', response.data)
 
-        alert("Logado com sucesso!")
+        if(response.status == 200){
+          localStorage.setItem("user-info", JSON.stringify(response.data))
+          alert("Logado com sucesso!")
+          this.$router.push('/home')
+        }
 
       } catch (error){
         console.log('Erro ao fazer login:', error)
