@@ -8,7 +8,7 @@
               <v-card-title class="pa-5" align="center">
               </v-card-title>
               <v-card-text>
-                <v-form ref="form-login">
+                <v-form ref="form-login" @submit.prevent="register">
                   <v-text-field 
                   label="Nome completo" 
                   v-model="name" 
@@ -42,7 +42,6 @@
                     :items="items"
                     outlined dense>
                   </v-select>
-                  {{ type_plan }}
                   <v-btn color="primary" type="submit" block>Cadastre-se</v-btn>
                   <div class="text-center mt-2">
                     <router-link to="/">Já tem uma conta? Faça o login</router-link>
@@ -58,6 +57,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -65,7 +66,49 @@ export default {
       email: '',
       password: '',
       type_plan: 'Bronze',
-      items: ['Bronze', 'Prata', 'Ouro']
+      items: [
+      {
+        title: 'Bronze',
+        value: 'bronze'
+      },
+      {
+        title: 'Prata',
+        value: 'silver'
+      },
+      {
+        title: 'Ouro',
+        value: 'gold'
+      }
+    ]
+    }
+  },
+  methods: {
+    async register() {
+      const {valid} = await this.$refs['form-login'].validate()
+
+      if(!valid){
+        alert("Preencha todos os dados!")
+        return
+      }
+      const registerData= {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        type_plan: this.type_plan
+      }
+
+      try {
+        const response = await axios.post('http://localhost:3000/users', registerData)
+        console.log('Resposta da API:', response.data)
+
+        alert("Cadastrado com sucesso! Redirecionando para a tela de login")
+        this.$router.push('/')
+
+      } catch (error){
+        console.log('Erro ao fazer o cadastro:', error)
+        alert('Erro ao fazer cadastro. Verifique os dados')
+      }
+      this.$refs['form-login'].reset()
     }
   }
 }
