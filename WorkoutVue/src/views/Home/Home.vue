@@ -45,7 +45,7 @@
   </template>
   
   <script>
-  import axios from 'axios';
+  import axios from 'axios'
   
   export default {
     data() {
@@ -53,28 +53,38 @@
         totalStudents: 0,
         totalExercises: 0,
         userName: ''
-      };
+      }
+    },
+    created() {
+      this.verficaLogin()
     },
     mounted() {
-      this.loadDashboardData();
-      this.loadUserName();
+      
+      this.loadDashboardData()
+      this.loadUserName()
     },
     methods: {
       async loadDashboardData() {
         try {
-          const response = await axios.get('http://localhost:3000/dashboard');
-          this.totalStudents = response.data.amount_students;
-          this.totalExercises = response.data.amount_exercises;
+          const response = await axios.get('http://localhost:3000/dashboard')
+          this.totalStudents = response.data.amount_students
+          this.totalExercises = response.data.amount_exercises
         } catch (error) {
-          console.error('Erro ao buscar dados do dashboard:', error);
+          console.error('Erro ao buscar dados do dashboard:', error)
         }
       },
       loadUserName() {
-        const userInfo = JSON.parse(localStorage.getItem('user-info'));
-        this.userName = userInfo.name;
+        const userInfo = JSON.parse(localStorage.getItem('user-info'))
+        this.userName = userInfo.name
+      },
+      verficaLogin() {
+        const userInfo = JSON.parse(localStorage.getItem('user-info'))
+        if (!userInfo || !userInfo.name) {
+          this.$router.push('/')
+        }
       }
     }
-  };
+  }
   </script>
   
   <style scoped>
