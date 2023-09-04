@@ -1,7 +1,14 @@
 <template>
+  <nav-bar></nav-bar>
   <router-view />
 </template>
 
-<script setup>
-  //
+<script>
+  import NavBar from './components/NavBar.vue';
+
+  export default {
+    components: {
+      NavBar
+    }
+  }
 </script>
