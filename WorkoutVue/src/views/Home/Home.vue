@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-layout>
       <v-main>
         <v-container>
           <v-row justify="center">
@@ -41,7 +41,7 @@
           </v-row>
         </v-container>
       </v-main>
-    </v-app>
+    </v-layout>
   </template>
   
   <script>
