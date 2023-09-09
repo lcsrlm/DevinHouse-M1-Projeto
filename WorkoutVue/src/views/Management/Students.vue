@@ -1,5 +1,9 @@
 <template>
-<v-layout>
-  
-</v-layout>
+    <v-main>
+sasaesae
+
+</v-main>
 </template>
+<script>
+
+</script>

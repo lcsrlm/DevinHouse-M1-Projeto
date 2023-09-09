@@ -1,5 +1,6 @@
 <template>
     <v-layout>
+    <v-main>
     <v-container fluid>
         <v-row align="center" justify="center" style="height: 85vh">
             <v-col cols="15" sm="6" md="7">
@@ -23,6 +24,7 @@
             </v-col>
         </v-row>
     </v-container>
+</v-main>
 </v-layout>
 </template>
   

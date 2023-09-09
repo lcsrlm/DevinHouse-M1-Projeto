@@ -1,6 +1,6 @@
 <template>
-    <v-layout>
-       <v-app-bar color="primary" v-if="renderizarMenu">
+   <v-layout>
+         <v-app-bar color="primary" v-if="renderizarMenu">
           <v-app-bar-title>WorkoutVue</v-app-bar-title>
           <RouterLink to="/home">
              <v-btn icon="mdi-home"></v-btn>
@@ -18,9 +18,8 @@
        <v-main>
           <router-view></router-view>
        </v-main>
-    </v-layout>
+      </v-layout>
  </template>
- 
  <script>
  export default {
     computed: {

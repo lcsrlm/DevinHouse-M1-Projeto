@@ -1,6 +1,5 @@
 <template>
-    <v-layout>
-      <v-main>
+        <v-main>
         <v-container>
           <v-row justify="center">
             <v-col cols="12" md="6">
@@ -40,8 +39,7 @@
             </v-col>
           </v-row>
         </v-container>
-      </v-main>
-    </v-layout>
+    </v-main>
   </template>
   
   <script>
