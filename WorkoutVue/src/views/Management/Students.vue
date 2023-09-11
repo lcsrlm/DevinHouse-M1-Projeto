@@ -4,8 +4,15 @@
             <v-row justify="center" align="center" style="height: 50vh;">
                 <v-col cols="12" md="8">
                     <v-card elevation="3">
-                        <v-card-title class="pa-5" align="center">Gerenciamento de alunos</v-card-title>
+                        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                            <v-card-title class="pa-5" align="left">Gerenciamento de alunos</v-card-title>
+                            <router-link to="/new/student">
+                                <v-btn style="margin-top: 20px; margin-right: 20px;" color="primary">Novo Aluno</v-btn>
+                            </router-link>
+                        </div>
                         <v-card-text>
+                            <v-text-field v-model="nomeDoAluno" @input="filtraAlunos"
+                                placeholder="Digite o nome do aluno"></v-text-field>
                             <v-table fixed-header height="300px">
                                 <thead>
                                     <tr>
@@ -18,12 +25,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(aluno, id) in alunos" :key="id">
+                                    <tr v-for="(aluno, id) in alunosFiltrados" :key="id">
                                         <td>{{ aluno.name }}</td>
-                                        <td class="text-center" style="display: flex; justify-content: space-evenly;">
-                                            <router-link to="/posts/visualizar"><v-btn>Ver
-                                                    detalhes</v-btn></router-link>
-                                            <v-btn>Deletar</v-btn>
+                                        <td class="text-center"
+                                            style="display: flex; justify-content: space-evenly; margin-top: 15px;">
+                                            <router-link to="/workouts"><v-btn variant="text" size="small">Montar
+                                                    treino</v-btn></router-link>
+                                            <v-btn variant="text" size="small">ver</v-btn>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -42,7 +50,9 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            alunos: []
+            alunos: [],
+            nomeDoAluno: '',
+            alunosFiltrados: []
         }
     },
     mounted() {
@@ -53,9 +63,15 @@ export default {
             try {
                 const response = await axios.get('http://localhost:3000/students')
                 this.alunos = response.data.students
+                this.alunosFiltrados = [...this.alunos]
             } catch (error) {
                 console.error('Erro ao buscar alunos:', error)
             }
+        },
+        filtraAlunos() {
+            const nomeDoAluno = this.nomeDoAluno.toLowerCase()
+            this.alunosFiltrados = this.alunos.filter(aluno => aluno.name.toLowerCase().includes(nomeDoAluno)
+            )
         }
     }
 }
