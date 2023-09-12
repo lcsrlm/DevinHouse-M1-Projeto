@@ -35,9 +35,10 @@ const router = createRouter({
       component: NewStudent
     },
     {
-      path: '/new/work',
+      path: '/new/work/:alunoId',
       name: 'Novo treino',
-      component: NewWork
+      component: NewWork,
+      props: true
     },
     {
       path: '/exercises',
