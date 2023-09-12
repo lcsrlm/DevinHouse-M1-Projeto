@@ -73,7 +73,7 @@ export default {
         }
     },
     props:
-        ['alunoID']
+        ['alunoId']
     ,
     mounted() {
         this.buscarExercicios()
@@ -90,7 +90,7 @@ export default {
         async cadastrarTreino() {
             try {
                 const data = {
-                    student_id: this.alunoID,
+                    student_id: this.alunoId,
                     exercise_id: this.selectedExercise,
                     repetitions: this.repetitions,
                     weight: this.weight,
