@@ -27,7 +27,7 @@
                           <div class="headline">{{ totalExercises }}</div>
                           <div>Exercícios</div>
                           <br>
-                          <router-link to="/new/work" >
+                          <router-link to="/exercises" >
                             <v-btn>Adicionar</v-btn>
                           </router-link>
                         </div>
