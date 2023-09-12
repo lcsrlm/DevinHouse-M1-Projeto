@@ -16,7 +16,7 @@
                           <div>Alunos Cadastrados</div>
                           <br>
                           <router-link to="/new/student">
-                            <v-btn>Adicionar</v-btn>
+                            <v-btn color="primary">Adicionar</v-btn>
                           </router-link>
                         </div>
                       </v-card>
@@ -28,7 +28,7 @@
                           <div>Exercícios</div>
                           <br>
                           <router-link to="/exercises" >
-                            <v-btn>Adicionar</v-btn>
+                            <v-btn color="primary">Adicionar</v-btn>
                           </router-link>
                         </div>
                       </v-card>
