@@ -1,3 +1,4 @@
+
 <template>
     <v-main>
         <v-container fluid>
@@ -29,8 +30,8 @@
                                         <td>{{ aluno.name }}</td>
                                         <td class="text-center"
                                             style="display: flex; justify-content: space-evenly; margin-top: 15px;">
-                                            <router-link to="/workouts"><v-btn variant="text" size="small">Montar
-                                                    treino</v-btn></router-link>
+                                            <v-btn @click="montarTreino(aluno.id)" variant="text" size="small">Montar
+                                                treino</v-btn>
                                             <v-btn variant="text" size="small">ver</v-btn>
                                         </td>
                                     </tr>
@@ -43,7 +44,7 @@
         </v-container>
     </v-main>
 </template>
-
+    
 <script>
 import axios from 'axios'
 
@@ -52,7 +53,8 @@ export default {
         return {
             alunos: [],
             nomeDoAluno: '',
-            alunosFiltrados: []
+            alunosFiltrados: [],
+            selectedAlunoId: null
         }
     },
     mounted() {
@@ -72,7 +74,11 @@ export default {
             const nomeDoAluno = this.nomeDoAluno.toLowerCase()
             this.alunosFiltrados = this.alunos.filter(aluno => aluno.name.toLowerCase().includes(nomeDoAluno)
             )
+        }, montarTreino(alunoId) {
+            this.selectedAlunoId = alunoId;
+            this.$router.push(`/new/work/${alunoId}`)
         }
     }
 }
 </script>
+    
