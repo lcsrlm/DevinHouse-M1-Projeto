@@ -51,9 +51,10 @@ const router = createRouter({
       component: Students
     },
     {
-      path: '/workouts',
+      path: '/workouts/:alunoId',
       name: 'Treinos',
-      component: Workouts
+      component: Workouts,
+      props: true
     }
   ]
 })
