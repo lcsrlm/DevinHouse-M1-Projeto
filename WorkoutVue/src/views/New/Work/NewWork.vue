@@ -1,7 +1,6 @@
-
 <template>
     <v-main>
-        <v-container fluid="">
+        <v-container fluid>
             <v-row justify="center" align="center" style="height: 100vh;">
                 <v-col cols="12" md="8">
                     <v-card elevation="3">
