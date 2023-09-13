@@ -99,6 +99,8 @@ export default {
                     day: this.selectedDay
                 }
                 await axios.post('http://localhost:3000/workouts', data)
+                alert('Treino cadastrado com sucesso!')
+                this.$refs['form-cadastro'].reset()
             } catch (error) {
                 console.error('Erro ao cadastrar treino:', error)
             }
