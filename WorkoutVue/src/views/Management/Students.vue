@@ -32,7 +32,8 @@
                                             style="display: flex; justify-content: space-evenly; margin-top: 15px;">
                                             <v-btn @click="montarTreino(aluno.id)" variant="text" size="small">Montar
                                                 treino</v-btn>
-                                            <v-btn variant="text" size="small">ver</v-btn>
+                                            <v-btn @click="verTreino(aluno.id)" variant="text" size="small">Ver
+                                                Treinos</v-btn>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -75,8 +76,12 @@ export default {
             this.alunosFiltrados = this.alunos.filter(aluno => aluno.name.toLowerCase().includes(nomeDoAluno)
             )
         }, montarTreino(alunoId) {
-            this.selectedAlunoId = alunoId;
+            this.selectedAlunoId = alunoId
             this.$router.push(`/new/work/${alunoId}`)
+        },
+        verTreino(alunoId) {
+            this.selectedAlunoId = alunoId
+            this.$router.push(`/workouts/${alunoId}`)
         }
     }
 }
