@@ -14,6 +14,7 @@
               <v-table fixed-header height="300px">
                 <thead>
                   <tr>
+                    <th class="text-center">Selecionar</th>
                     <th class="text-center">Exercício</th>
                     <th class="text-center">Repetições</th>
                     <th class="text-center">Peso</th>
@@ -23,6 +24,9 @@
                 </thead>
                 <tbody>
                   <tr v-for="(workout, id) in selectedDayWorkouts" :key="id">
+                    <td class="text-center">
+                      <v-checkbox v-model="workout.selected" @change="exercicioSelecionado(workout)"></v-checkbox>
+                    </td>
                     <td class="text-center">{{ workout.exercise_description }}</td>
                     <td class="text-center">{{ workout.repetitions }}</td>
                     <td class="text-center">{{ workout.weight }}Kg</td>
@@ -106,6 +110,20 @@ export default {
         }
       } catch (error) {
         console.error('Erro ao buscar treinos:', error)
+      }
+    },
+    async exercicioSelecionado (workout) {
+      try {
+        const data = {
+          workout_id: workout.id,
+          student_id: this.alunoId,
+          day_of_week: this.selectedDay
+        }
+        await axios.post('http://localhost:3000/workouts/check', data)
+        console.log('Dados enviados')
+      }
+      catch (error) {
+        console.error('Erro ao marcar exercicio:', error)
       }
     },
     pegarAlunoNome(data) {
