@@ -30,9 +30,9 @@
                                         <td>{{ aluno.name }}</td>
                                         <td class="text-center"
                                             style="display: flex; justify-content: space-evenly; margin-top: 15px;">
-                                            <v-btn @click="montarTreino(aluno.id)" variant="text" size="small">Montar
+                                            <v-btn @click="montarTreino(aluno.id)" variant="tonal" color="light-blue-darken-4" size="small">Montar
                                                 treino</v-btn>
-                                            <v-btn @click="verTreino(aluno.id)" variant="text" size="small">Ver
+                                            <v-btn @click="verTreino(aluno.id)" variant="tonal" color="green-accent-4" size="small">Ver
                                                 Treinos</v-btn>
                                         </td>
                                     </tr>
