@@ -1,10 +1,9 @@
 <template>
-    <v-layout>
     <v-main>
     <v-container fluid>
-        <v-row align="center" justify="center" style="height: 85vh">
-            <v-col cols="15" sm="6" md="7">
-                <v-card elevation="3">
+        <v-row align="center" justify="center" style="height: 100vh">
+            <v-col cols="50" sm="6" md="7">
+                <v-card elevation="5">
                     <v-card-title class="text-h5">Gerenciamento de Exercícios</v-card-title>
                     <v-form @submit.prevent="cadastrarExercicio" ref="exercise-form">
                         <v-text-field v-model="novoExercicio.description" label="Nome do Exercício" outlined
@@ -25,7 +24,6 @@
         </v-row>
     </v-container>
 </v-main>
-</v-layout>
 </template>
   
 <script>
