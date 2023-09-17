@@ -1,5 +1,4 @@
 <template>
-  <v-app>
     <v-main>
       <v-container fluid>
         <v-row justify="center" align="center" style="height: 100vh;">
@@ -53,7 +52,6 @@
         </v-row>
       </v-container>
     </v-main>
-  </v-app>
 </template>
 
 <script>
