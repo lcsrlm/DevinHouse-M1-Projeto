@@ -2,16 +2,16 @@
 
 ## Descrição
 
-O Projeto WorkoutVue é uma aplicação web destina para o uso em academias. Ele permite que os instrutores e gestores acompanhem o progresso dos alunos, criem e atribuam treinos para seus alunos.
+O Projeto WorkoutVue é uma aplicação web destinada para o uso em academias. Ele permite que os instrutores e gestores acompanhem o progresso, criem e atribuam treinos para seus alunos.
 
 ## Tecnologias Utilizadas
 
-- **Vue.Js**
-- **Vuetify**
-- **Axios**
-- **Vue Router**
-- **Git**
-- **GitHub**
+- [**Vue.Js**](https://vuejs.org/)
+- [**Vuetify**](https://vuetifyjs.com)
+- [**Axios**](https://axios-http.com/)
+- [**Vue Router**](https://router.vuejs.org/)
+- [**Git**](https://git-scm.com/)
+- [**GitHub**](https://github.com/)
 
 ## Passos para Executar
 
